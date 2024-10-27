@@ -1,0 +1,41 @@
+/* Main flex container */
+.container {
+    display: flex;
+    height: 98vh;
+  }
+  
+  /* Left menu section */
+  .menuDiv {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 1em;
+  }
+  
+  /* Center container for land and creature cards, stacked vertically */
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: #ffffff;
+  }
+  
+  /* Top section for lands */
+  .lands {
+    flex: 1;
+    background-color: #e0ffe0;
+    padding: 1em;
+  }
+  
+  /* Bottom section for creatures */
+  .creatures {
+    flex: 3;
+    background-color: #e0f7ff;
+    padding: 1em;
+  }
+  
+  /* Right enchantments section */
+  .enchantsDiv {
+    width: 20%;
+    background-color: #f0f0f0;
+    padding: 1em;
+  }

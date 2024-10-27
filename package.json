@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "electron": "^33.0.2"
+  },
+  "name": "mtg-tracker",
+  "version": "1.0.0",
+  "description": "weird blend between online and physical magic the gathering client",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
