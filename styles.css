@@ -21,7 +21,9 @@
   
   /* Top section for lands */
   .lands {
-    flex: 1;
+    display: flex;
+    flex-direction: row; /* Stacks land cards horizontally */
+    flex-wrap: wrap; /* Allows wrapping to the next row if needed */
     background-color: #e0ffe0;
     padding: 1em;
   }
@@ -38,4 +40,113 @@
     width: 20%;
     background-color: #f0f0f0;
     padding: 1em;
+  }
+
+
+  /* Buttons for adding land */
+.land-buttons {
+    display: flex;
+    gap: 5px;
+    padding: 1em;
+}
+
+.land-buttons button {
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+.land-buttons-container {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.land-buttons-label {
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.land-buttons .white { background-color: #ffffff; color: black; }
+.land-buttons .red { background-color: #ff4d4d; }
+.land-buttons .green { background-color: #4caf50; }
+.land-buttons .black { background-color: #333333; }
+.land-buttons .blue { background-color: #2196f3; }
+
+
+/* land cards */
+
+.land-card {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.land-card.white { background-color: #f0f0f0; color: black; }
+.land-card.red { background-color: #ff4d4d; color: white; }
+.land-card.green { background-color: #4caf50; color: white; }
+.land-card.black { background-color: #333333; color: white; }
+.land-card.blue { background-color: #2196f3; color: white; }
+
+
+
+
+/* input field for creature*/
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+  }
+  
+  #creature-search {
+    width: 80%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+  }
+
+
+  /* searched creature styling */
+  .results-list {
+    border-top: 1px solid #ddd;
+    margin-top: 0.5em;
+  }
+  
+  .card-option {
+    padding: 0.5em;
+    cursor: pointer;
+  }
+  
+  .card-option:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* card styling and tapped */
+  .creature-card {
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .creature-card.tapped .card-image {
+    transform: rotate(90deg); /* Rotate to indicate tapped state */
+    opacity: 0.5; /* Optional opacity change */
+  }
+
+  .card-image {
+    width: 150px; /* Adjust width as needed */
+    height: auto;
+  }
+  
+  .temporary-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
   }

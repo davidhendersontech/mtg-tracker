@@ -28,8 +28,71 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     function selectCard(card) {
-      console.log("Selected card:", card);
-      // Logic to display the selected card in the app goes here
+      // Check the card's type
+      const cardType = card.type_line.toLowerCase();
+    
+      if (cardType.includes("instant") || cardType.includes("sorcery")) {
+        // Display instant or sorcery cards temporarily
+        displayTemporaryCard(card);
+      } else if (cardType.includes("creature")) {
+        // Add creature cards to the creatures section
+        addCardToSection(card, ".creatures");
+      } else {
+        // Add non-creature cards to the enchantments section
+        addCardToSection(card, ".enchantsDiv");
+      }
+    }
+    
+    function addCardToSection(card, sectionSelector) {
+      const container = document.querySelector(sectionSelector);
+    
+      // Create a new element for the selected card
+      const cardElement = document.createElement("div");
+      cardElement.classList.add("card");
+      
+      // Add the card image with higher resolution
+      const cardImage = document.createElement("img");
+      cardImage.src = card.image_uris?.large || ""; // Use 'large' image for better quality
+      cardImage.alt = card.name;
+      cardImage.classList.add("card-image");
+    
+      cardElement.appendChild(cardImage);
+    
+      // Add click event to toggle tapped state for creature and enchantment cards
+      cardElement.addEventListener("click", () => {
+        if (!cardType.includes("instant") && !cardType.includes("sorcery")) {
+          cardElement.classList.toggle("tapped");
+        }
+      });
+    
+      // Add right-click event to remove the card for creature and enchantment cards
+      cardElement.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        container.removeChild(cardElement);
+      });
+    
+      // Append the card element to the selected section
+      container.appendChild(cardElement);
+    
+      console.log(`Added card to ${sectionSelector} area:`, card);
+    }
+    
+    function displayTemporaryCard(card) {
+      const tempContainer = document.createElement("div");
+      tempContainer.classList.add("temporary-card");
+    
+      const cardImage = document.createElement("img");
+      cardImage.src = card.image_uris?.large || ""; // Use 'large' image for better quality
+      cardImage.alt = card.name;
+      cardImage.classList.add("card-image");
+    
+      tempContainer.appendChild(cardImage);
+      document.body.appendChild(tempContainer);
+    
+      // Automatically remove the card after a few seconds
+      setTimeout(() => {
+        tempContainer.remove();
+      }, 5000); // Display for 5 seconds
     }
   
     // Event listener for the input field
