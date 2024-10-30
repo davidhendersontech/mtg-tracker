@@ -5,24 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MTG Client</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="landButtons.js"></script>
+  <script src="scryfallSearch.js"></script>
 </head>
 <body>
   <div class="container">
     <!-- Left menu -->
     <div class="menuDiv">
       <h2>Menu</h2>
-      <!-- Menu items go here -->
+        <div class="land-buttons-container">
+        <h3 class="land-buttons-label">Add Lands</h3>
+        <div class="land-buttons">
+            <button class="white">White</button>
+            <button class="red">Red</button>
+            <button class="green">Green</button>
+            <button class="black">Black</button>
+            <button class="blue">Blue</button>
+        </div>
+    </div>
+    <div class="search-container">
+        <label for="creature-search">Add creature card below</label>
+        <input type="text" id="creature-search" placeholder="Type creature name..." />
+        <div id="results-container" class="results-list"></div>
+    </div>
     </div>
 
     <!-- Center cards section -->
     <div class="cardsContainer">
       <div class="lands">
         <h3>Land Cards</h3>
-        <!-- Land cards go here -->
+        
       </div>
       <div class="creatures">
         <h3>Creature Cards</h3>
-        <!-- Creature cards go here -->
+        
       </div>
     </div>
 
@@ -30,6 +46,7 @@
     <div class="enchantsDiv">
       <h2>Enchantments</h2>
       <!-- Enchantment details go here -->
+
     </div>
   </div>
 </body>
